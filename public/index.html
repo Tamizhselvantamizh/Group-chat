@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Socket.IO Chat Example</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<form id="frm" action="/create" method="POST" name = "userDetail">
+    <fieldset>
+      <h3>Enter user name</h3>
+      <label>User Name</label>
+      <input type ="text" id="uname" name="username" required>
+      <br><br>
+      <button type ="reset">Reset</button>
+      <button type ="submit">Submit</button>
+    </fieldset>
+   </form>
+
+   <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    let groupName = urlParams.get('groupName')
+    let password = urlParams.get('password')
+    
+    function addHidden(theForm, key, value) {
+    
+
+    var input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = key; 
+    input.value = value;
+    theForm.appendChild(input);
+    }
+    var theForm = document.forms['userDetail'];
+    addHidden(theForm, 'groupName', groupName);
+    addHidden(theForm, 'password', password);
+</script>
+</body>
+</html>
